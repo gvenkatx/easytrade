@@ -91,6 +91,33 @@ kubectl -n easytrade get svc
 kubectl delete namespace easytrade
 ```
 
+## Red Hat OpenShift instructions
+
+To deploy Easytrade in OpenShift you need to have:
+
+- `oc` tool installed
+  - here's a [guide](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) on how to get it
+
+```bash
+# first create the project
+oc new-project easytrade
+
+#Add policies to ensure privileges for deploying the EasyTrade resources
+oc adm policy add-role-to-user admin <cluster-admin> -n easytrade
+oc adm policy add-scc-to-user anyuid -z default -n easytrade 
+
+# then use the manifests to deploy the EasyTrade resources
+oc -n dyna-easytrade apply -f ./kubernetes-manifests
+
+# to access the frontend EasyTrade UI
+# create a route in OpenShift for the frontendreverseproxy-easytrade service
+oc expose svc/frontendreverseproxy-easytrade --name=easytrade-frontend -n easytrade
+
+# to delete the deployment
+oc delete easytrade
+```
+
+
 ## Where to start
 
 After starting easyTrade application you can:
