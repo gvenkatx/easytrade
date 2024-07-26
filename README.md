@@ -96,14 +96,17 @@ kubectl delete namespace easytrade
 To deploy Easytrade in OpenShift you need to have:
 
 - `oc` tool installed
-  - here's a [guide](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/) on how to get it
+  - go to the main help icon on your OpenShift console (top right corner indicated by a ?) and select "Command Line Tools" to see how you install the `oc` tool 
 
 ```bash
+# Login in to your OpenShift cluster and enter the password when prompted
+oc login <OpenSHift API URL> -u <cluster admin user>
+
 # first create the project
 oc new-project easytrade
 
-#Add policies to ensure privileges for deploying the EasyTrade resources
-oc adm policy add-role-to-user admin <cluster-admin> -n easytrade
+# Add policies for deploying the EasyTrade resources
+oc adm policy add-role-to-user admin <cluster admin user> -n easytrade
 oc adm policy add-scc-to-user anyuid -z default -n easytrade 
 
 # then use the manifests to deploy the EasyTrade resources
