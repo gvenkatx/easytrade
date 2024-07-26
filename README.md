@@ -95,6 +95,9 @@ kubectl delete namespace easytrade
 
 To deploy Easytrade in OpenShift you need to have:
 
+- Dynatrace operator installed on the cluster
+  - here's a [guide](https://docs.dynatrace.com/docs/setup-and-configuration/setup-on-k8s/installation/other/ocp-operator-hub) on how to install it
+
 - `oc` tool installed
   - go to the main help icon on your OpenShift console (top right corner indicated by a ?) and select "Command Line Tools" to see how you install the `oc` tool 
 
