@@ -113,6 +113,7 @@ oc adm policy add-role-to-user admin <cluster admin user> -n easytrade
 oc adm policy add-scc-to-user anyuid -z default -n easytrade 
 
 # then use the manifests to deploy the EasyTrade resources
+# wait until all the pods for the app are up and running
 oc -n easytrade apply -f ./kubernetes-manifests
 
 # to access the frontend EasyTrade UI
