@@ -119,6 +119,7 @@ oc -n easytrade apply -f ./kubernetes-manifests
 # to access the frontend EasyTrade UI
 # create a route in OpenShift for the frontendreverseproxy-easytrade service
 oc expose svc/frontendreverseproxy-easytrade --name=easytrade-frontend -n easytrade
+oc get route/easytrade-frontend
 
 # to delete the deployment
 oc delete easytrade
