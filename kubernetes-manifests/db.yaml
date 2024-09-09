@@ -18,7 +18,7 @@ spec:
             - containerPort: 1433
           env:
             - name: SA_PASSWORD
-              value: "yourStrong(!)Password"
+              value: "Mypass123"
           resources:
             requests:
               cpu: 300m
