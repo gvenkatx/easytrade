@@ -128,7 +128,7 @@ oc expose svc/frontendreverseproxy-easytrade --name=easytrade-frontend -n easytr
 oc get route/easytrade-frontend
 
 # to delete the deployment
-oc delete easytrade
+oc delete project easytrade
 ```
 
 
